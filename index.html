@@ -8,9 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <!-- Vercel Analytics - Traffic tracking (views, visitors, locations, etc.) -->
-  <script async src="https://vercel.live/analytics.js"></script>
-
   <style>
     :root {
       --primary: #2563eb;
@@ -77,9 +74,7 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ────────────────────────
-       PROJECTS – Modern Cards
-    ──────────────────────── */
+    /* PROJECTS – Modern Cards */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -136,9 +131,7 @@
       color: var(--gray);
     }
 
-    /* ────────────────────────
-       SKILLS – Icon + Bar Style
-    ──────────────────────── */
+    /* SKILLS – Icon + Bar Style */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -438,6 +431,28 @@
 
     </div>
   </section>
+
+  <!-- Firebase Analytics - Added here -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAhJ7ChZfoxruBjXH8zDMr6_ezRWFUa7Lc",
+      authDomain: "zohaib-portfolio-34311.firebaseapp.com",
+      projectId: "zohaib-portfolio-34311",
+      storageBucket: "zohaib-portfolio-34311.firebasestorage.app",
+      messagingSenderId: "834038580177",
+      appId: "1:834038580177:web:f8cb3c045631aeaf7756f0",
+      measurementId: "G-M00KQZRT3E"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 
   <footer>
     Last updated: March 2026
