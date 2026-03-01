@@ -1,80 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Muhammad Zohaib Hassan - Android Engineer</title>
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Vercel Analytics -->
+  <script async src="https://vercel.live/analytics.js"></script>
 
   <style>
     :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --primary: #60a5fa;
+      --primary-dark: #3b82f6;
+      --card: #1e293b;
+      --border: #334155;
+      --gray: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --text: #0f172a;
       --primary: #2563eb;
-      --primary-light: #3b82f6;
-      --dark: #111827;
-      --gray: #4b5563;
-      --light-gray: #6b7280;
-      --bg: #ffffff;
-      --card-bg: #f8fafc;
+      --primary-dark: #1d4ed8;
+      --card: #ffffff;
       --border: #e2e8f0;
+      --gray: #475569;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Poppins', system-ui, sans-serif;
-      background: #f8fafc;
-      color: var(--dark);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      min-height: 100vh;
     }
 
-    header { text-align: center; margin-bottom: 50px; }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
     h1 {
-      font-size: 3.2rem;
+      font-size: 3.5rem;
+      font-weight: 700;
       color: var(--primary);
       margin-bottom: 12px;
     }
+
     .contact {
-      font-size: 1.1rem;
-      color: var(--gray);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 10px;
+      gap: 24px;
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-top: 16px;
     }
+
     .contact a, .contact span {
       color: var(--primary);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      transition: color 0.3s;
     }
-    .contact a:hover, .contact span:hover { text-decoration: underline; }
 
-    section { margin-bottom: 60px; }
+    .contact a:hover, .contact span:hover {
+      color: var(--primary-dark);
+    }
+
+    section {
+      margin-bottom: 100px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     h2 {
-      font-size: 1.9rem;
+      font-size: 2rem;
+      font-weight: 600;
       color: var(--primary);
-      border-bottom: 3px solid var(--primary);
+      margin-bottom: 32px;
+      position: relative;
       display: inline-block;
-      padding-bottom: 8px;
-      margin-bottom: 28px;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      padding: 20px 0;
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--border);
+    }
+
+    .exp-item {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -40px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 3px solid var(--primary);
+      z-index: 1;
+    }
+
+    .exp-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .exp-company {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .exp-date {
       color: var(--gray);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      margin: 4px 0 12px;
     }
 
-    /* PROJECTS – Modern Cards */
+    .exp-desc ul {
+      padding-left: 20px;
+      margin-top: 8px;
+      list-style: disc;
+    }
+
+    /* Projects Grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -82,56 +178,32 @@
     }
 
     .project-card {
-      background: var(--bg);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 28px 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-      transition: all 0.28s ease;
-      position: relative;
-      overflow: hidden;
+      padding: 28px;
+      transition: all 0.3s ease;
     }
 
     .project-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
-      border-color: var(--primary-light);
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-light));
-      opacity: 0.7;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+      border-color: var(--primary);
     }
 
     .project-title {
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       color: var(--primary);
       margin-bottom: 8px;
-      font-weight: 600;
     }
 
     .project-date {
-      font-size: 0.95rem;
-      color: var(--light-gray);
-      margin-bottom: 16px;
-      font-style: italic;
-    }
-
-    .project-card ul {
-      padding-left: 22px;
-      margin-top: 12px;
-    }
-
-    .project-card ul li {
-      margin-bottom: 10px;
       color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
     }
 
-    /* SKILLS – Icon + Bar Style */
+    /* Skills */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -139,47 +211,25 @@
     }
 
     .skill-category {
-      background: var(--card-bg);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: all 0.25s ease;
-    }
-
-    .skill-category:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
 
     .skill-category h3 {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       color: var(--primary);
       margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .skill-category h3 i {
-      font-size: 1.4rem;
     }
 
     .skill-item {
-      margin-bottom: 14px;
-    }
-
-    .skill-name {
-      font-weight: 500;
-      margin-bottom: 6px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.98rem;
+      margin-bottom: 12px;
     }
 
     .skill-bar {
       height: 8px;
-      background: #e2e8f0;
+      background: var(--border);
       border-radius: 4px;
       overflow: hidden;
     }
@@ -187,244 +237,315 @@
     .skill-level {
       height: 100%;
       background: var(--primary);
-      border-radius: 4px;
-      transition: width 1.2s ease-out;
     }
-
-    .expert    { width: 95%; }
-    .advanced  { width: 85%; }
-    .proficient{ width: 75%; }
-    .intermediate { width: 60%; }
 
     @media (max-width: 768px) {
-      body { padding: 30px 16px; }
-      h1 { font-size: 2.6rem; }
+      h1 { font-size: 2.8rem; }
       .projects-grid { grid-template-columns: 1fr; }
       .contact { flex-direction: column; gap: 12px; }
-    }
-
-    @media print {
-      body { background: white; color: black; }
-      a { color: black; }
-      .skill-level { background: #999 !important; }
-      .project-card, .skill-category { box-shadow: none; border: 1px solid #ccc; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Muhammad Zohaib Hassan</h1>
-    <div class="contact">
-      <span><i class="fas fa-phone"></i> +92 340 2333225</span>
-      <span><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</span>
-      <a href="mailto:m.zohaibhassan01@gmail.com"><i class="fas fa-envelope"></i> m.zohaibhassan01@gmail.com</a>
-      <a href="https://www.linkedin.com/in/mzohaib01" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/mzohaib01</a>
-      <a href="https://github.com/muzohaib3" target="_blank"><i class="fab fa-github"></i> github.com/muzohaib3</a>
-    </div>
-  </header>
+  <div class="container">
 
-  <section>
-    <h2>Summary</h2>
-    <p>Experienced Android Developer with 3+ years of experience in building scalable and user-friendly mobile applications. Skilled in Kotlin, Java, Android SDK, and Jetpack libraries with strong expertise in MVVM architecture, RESTful APIs, modular design, performance optimization, and clean architecture. Passionate about delivering reliable, secure, and impactful digital solutions — currently focused on fintech mobile banking experiences.</p>
-  </section>
-
-  <section>
-    <h2>Key Projects</h2>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-title">Bank Alfalah Agent</div>
-        <div class="project-date">Jan 2025</div>
-        <ul>
-          <li>Developed wallet and account opening modules for agent-assisted customer onboarding</li>
-          <li>Implemented secure remittance management workflows using REST APIs and modern UI components</li>
-        </ul>
+    <header>
+      <h1>Muhammad Zohaib Hassan</h1>
+      <div class="contact">
+        <span><i class="fas fa-phone"></i> +92 340 2333225</span>
+        <span><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</span>
+        <a href="mailto:m.zohaibhassan01@gmail.com"><i class="fas fa-envelope"></i> m.zohaibhassan01@gmail.com</a>
+        <a href="https://www.linkedin.com/in/mzohaib01" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/mzohaib01</a>
+        <a href="https://github.com/muzohaib3" target="_blank"><i class="fab fa-github"></i> github.com/muzohaib3</a>
       </div>
+    </header>
 
-      <div class="project-card">
-        <div class="project-title">Bank Alfalah QR Scan (SBS Module)</div>
-        <div class="project-date">Jan 2025</div>
-        <ul>
-          <li>Implemented QR-based payment processing supporting MasterCard, Visa, and Raast networks</li>
-          <li>Added installment scheduling and payment management features to enhance customer flexibility</li>
-        </ul>
-      </div>
+    <section>
+      <h2>Summary</h2>
+      <p>Experienced Android Developer with 3+ years of experience in building scalable and user-friendly mobile applications. Skilled in Kotlin, Java, Android SDK, and Jetpack libraries with strong expertise in MVVM architecture, RESTful APIs, and UI optimization. Passionate about performance improvement, clean architecture, and delivering impactful digital solutions.</p>
+    </section>
 
-      <div class="project-card">
-        <div class="project-title">Bank Alfalah UPI (Tap & Pay)</div>
-        <div class="project-date">May 2025 – Present</div>
-        <ul>
-          <li>Developed UPI Tap & Pay feature enabling contactless payments using NFC-enabled cards</li>
-          <li>Implemented card enrollment flow with real-time status updates and default card selection functionality</li>
-          <li>Built transaction history viewer and NFC activation module for enrolled cards</li>
-        </ul>
-      </div>
-
-      <div class="project-card">
-        <div class="project-title">BlueEx RiderApp</div>
-        <div class="project-date">Oct 2024</div>
-        <ul>
-          <li>Revamped RiderApp UI and improved stability across Android devices</li>
-          <li>Integrated scan feature and Easypaisa payments for riders</li>
-        </ul>
-      </div>
-
-      <div class="project-card">
-        <div class="project-title">Bosch Pharma - Inventory System</div>
-        <div class="project-date">Jul 2022</div>
-        <ul>
-          <li>Developed real-time warehouse stock tracking system</li>
-          <li>Integrated barcode scanning and data synchronization for accurate reporting</li>
-        </ul>
-      </div>
-
-      <div class="project-card">
-        <div class="project-title">Bosch Pharma - GoodsTracker (WMS)</div>
-        <div class="project-date">Jul 2022</div>
-        <ul>
-          <li>Designed warehouse management system to streamline order fulfillment</li>
-          <li>Automated goods receipt and tracking through smart barcode modules</li>
-        </ul>
-      </div>
-
-      <div class="project-card">
-        <div class="project-title">Line Dashboard (Bosch Pharma)</div>
-        <div class="project-date">Aug 2022</div>
-        <ul>
-          <li>Built dashboard to monitor production schedules and batch performance in real-time</li>
-          <li>Integrated analytics charts and progress visualization for supervisors</li>
-        </ul>
-      </div>
-
-      <div class="project-card">
-        <div class="project-title">TCF - School Management App</div>
-        <div class="project-date">Mar 2023</div>
-        <ul>
-          <li>Developed modular school management platform for teachers and admins</li>
-          <li>Implemented offline caching and scalable design for better performance</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <div class="education-list" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
-      <div style="background:var(--card-bg); padding:24px; border-radius:12px; border:1px solid var(--border);">
-        <strong>NED University of Engineering and Technology</strong><br>
-        <em>Master of Engineering in Software Engineering</em><br>
-        <span style="color:var(--gray);">Karachi, Pakistan • 2023 – Present</span>
-      </div>
-      <div style="background:var(--card-bg); padding:24px; border-radius:12px; border:1px solid var(--border);">
-        <strong>Sir Syed University of Engineering and Technology</strong><br>
-        <em>Bachelor of Science in Electronics Engineering</em><br>
-        <span style="color:var(--gray);">Karachi, Pakistan • 2017 – 2021</span>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-
-      <div class="skill-category">
-        <h3><i class="fas fa-code"></i> Languages</h3>
-        <div class="skill-item">
-          <div class="skill-name">Kotlin <span>Expert</span></div>
-          <div class="skill-bar"><div class="skill-level expert"></div></div>
+    <section>
+      <h2>Experience</h2>
+      <div class="timeline">
+        <!-- Bank Alfalah -->
+        <div class="exp-item">
+          <div class="exp-title">Android Developer</div>
+          <div class="exp-company">Bank Alfalah</div>
+          <div class="exp-date">Karachi, Pakistan • May 2025 – Present</div>
+          <div class="exp-desc">
+            <ul>
+              <li>Developed and maintained mobile banking features including QR payments, installment scheduling, and account onboarding.</li>
+              <li>Worked on SBS module integration for MasterCard, Visa, and Raast payments with secure REST API connections.</li>
+              <li>Collaborated with backend and QA teams to ensure smooth user experiences and robust security standards.</li>
+            </ul>
+          </div>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">Java <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
+
+        <!-- TCF -->
+        <div class="exp-item">
+          <div class="exp-title">Senior Android Developer</div>
+          <div class="exp-company">The Citizens Foundation (TCF)</div>
+          <div class="exp-date">Karachi, Pakistan • Sep 2023 – May 2025</div>
+          <div class="exp-desc">
+            <ul>
+              <li>Built and optimized school management applications improving teacher and admin coordination.</li>
+              <li>Implemented efficient caching and background sync for offline usability in remote areas.</li>
+            </ul>
+          </div>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">Dart <span>Proficient</span></div>
-          <div class="skill-bar"><div class="skill-level proficient"></div></div>
+
+        <!-- Bosch -->
+        <div class="exp-item">
+          <div class="exp-title">Android Developer</div>
+          <div class="exp-company">Bosch Pharmaceuticals</div>
+          <div class="exp-date">Karachi, Pakistan • Apr 2022 – May 2023</div>
+          <div class="exp-desc">
+            <ul>
+              <li>Developed warehouse and inventory tracking systems integrating barcode scanning and live synchronization.</li>
+              <li>Built dashboards for medicine production schedules and reporting, improving process visibility.</li>
+            </ul>
+          </div>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">XML <span>Proficient</span></div>
-          <div class="skill-bar"><div class="skill-level proficient"></div></div>
+
+        <!-- Evolution Wing -->
+        <div class="exp-item">
+          <div class="exp-title">Junior Android Developer</div>
+          <div class="exp-company">Evolution Wing</div>
+          <div class="exp-date">Karachi, Pakistan • Aug 2021 – Mar 2022</div>
+          <div class="exp-desc">
+            <ul>
+              <li>Developed Android applications using Kotlin and MVVM architecture.</li>
+              <li>Integrated third-party APIs and Firebase for analytics, crash reporting, and push notifications.</li>
+            </ul>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="skill-category">
-        <h3><i class="fas fa-layer-group"></i> Frameworks & SDK</h3>
-        <div class="skill-item">
-          <div class="skill-name">Android SDK & Jetpack <span>Expert</span></div>
-          <div class="skill-bar"><div class="skill-level expert"></div></div>
+    <section>
+      <h2>Key Projects</h2>
+      <div class="projects-grid">
+        <!-- Bank Alfalah Agent -->
+        <div class="project-card">
+          <div class="project-title">Bank Alfalah Agent</div>
+          <div class="project-date">Jan 2025</div>
+          <ul>
+            <li>Developed wallet and account opening modules for agent-assisted customer onboarding.</li>
+            <li>Implemented secure remittance management workflows using REST APIs and modern UI components.</li>
+          </ul>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">Flutter <span>Proficient</span></div>
-          <div class="skill-bar"><div class="skill-level proficient"></div></div>
+
+        <!-- Bank Alfalah QR Scan -->
+        <div class="project-card">
+          <div class="project-title">Bank Alfalah QR Scan (SBS Module)</div>
+          <div class="project-date">Jan 2025</div>
+          <ul>
+            <li>Implemented QR-based payment processing supporting MasterCard, Visa, and Raast networks.</li>
+            <li>Added installment scheduling and payment management features to enhance customer flexibility.</li>
+          </ul>
+        </div>
+
+        <!-- Bank Alfalah UPI Tap and Pay (new one) -->
+        <div class="project-card">
+          <div class="project-title">Bank Alfalah UPI Tap and Pay</div>
+          <div class="project-date">May 2025 – Present</div>
+          <ul>
+            <li>Implemented card enrollment flow with real-time status updates and default card selection functionality.</li>
+            <li>Developed transaction history viewer for enrolled cards with detailed NFC-based payment records.</li>
+            <li>Enabled NFC activation and secure tap-to-pay integration for UPI transactions.</li>
+          </ul>
+        </div>
+
+        <!-- BlueEx RiderApp -->
+        <div class="project-card">
+          <div class="project-title">BlueEx RiderApp</div>
+          <div class="project-date">Oct 2024</div>
+          <ul>
+            <li>Revamped RiderApp UI and improved stability across Android devices.</li>
+            <li>Integrated scan feature and Easypaisa payments for riders.</li>
+          </ul>
+        </div>
+
+        <!-- Bosch Inventory -->
+        <div class="project-card">
+          <div class="project-title">Bosch Pharma - Inventory System</div>
+          <div class="project-date">Jul 2022</div>
+          <ul>
+            <li>Developed real-time warehouse stock tracking system.</li>
+            <li>Integrated barcode scanning and data synchronization for accurate reporting.</li>
+          </ul>
+        </div>
+
+        <!-- GoodsTracker -->
+        <div class="project-card">
+          <div class="project-title">Bosch Pharma - GoodsTracker (WMS)</div>
+          <div class="project-date">Jul 2022</div>
+          <ul>
+            <li>Designed warehouse management system to streamline order fulfillment.</li>
+            <li>Automated goods receipt and tracking through smart barcode modules.</li>
+          </ul>
+        </div>
+
+        <!-- Line Dashboard -->
+        <div class="project-card">
+          <div class="project-title">Line Dashboard (Bosch Pharma)</div>
+          <div class="project-date">Aug 2022</div>
+          <ul>
+            <li>Built dashboard to monitor production schedules and batch performance in real-time.</li>
+            <li>Integrated analytics charts and progress visualization for supervisors.</li>
+          </ul>
+        </div>
+
+        <!-- TCF School App -->
+        <div class="project-card">
+          <div class="project-title">TCF - School Management App</div>
+          <div class="project-date">Mar 2023</div>
+          <ul>
+            <li>Developed modular school management platform for teachers and admins.</li>
+            <li>Implemented offline caching and scalable design for better performance.</li>
+          </ul>
         </div>
       </div>
+    </section>
 
-      <div class="skill-category">
-        <h3><i class="fas fa-cubes"></i> Architecture</h3>
-        <div class="skill-item">
-          <div class="skill-name">MVVM <span>Expert</span></div>
-          <div class="skill-bar"><div class="skill-level expert"></div></div>
+    <section>
+      <h2>Education</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        <div style="background: var(--card); padding: 24px; border-radius: 12px; border: 1px solid var(--border);">
+          <strong>NED University of Engineering and Technology</strong><br>
+          <em>Master of Engineering in Software Engineering</em><br>
+          <span style="color: var(--gray);">Karachi, Pakistan • 2023 – Present</span>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">Clean Architecture <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">SOLID Principles <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Modular / Multi-module <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
+        <div style="background: var(--card); padding: 24px; border-radius: 12px; border: 1px solid var(--border);">
+          <strong>Sir Syed University of Engineering and Technology</strong><br>
+          <em>Bachelor of Science in Electronics Engineering</em><br>
+          <span style="color: var(--gray);">Karachi, Pakistan • 2017 – 2021</span>
         </div>
       </div>
+    </section>
 
-      <div class="skill-category">
-        <h3><i class="fas fa-tools"></i> Libraries & Tools</h3>
-        <div class="skill-item">
-          <div class="skill-name">Retrofit, OkHttp, Room <span>Expert</span></div>
-          <div class="skill-bar"><div class="skill-level expert"></div></div>
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <!-- Languages -->
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Languages</h3>
+          <div class="skill-item">
+            <div class="skill-name">Kotlin <span></span></div>
+            <div class="skill-bar"><div class="skill-level expert"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Java <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Dart <span>Proficient</span></div>
+            <div class="skill-bar"><div class="skill-level proficient"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">XML <span>Proficient</span></div>
+            <div class="skill-bar"><div class="skill-level proficient"></div></div>
+          </div>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">Dagger/Hilt, Coroutines <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
+
+        <!-- Frameworks -->
+        <div class="skill-category">
+          <h3><i class="fas fa-layer-group"></i> Frameworks & SDK</h3>
+          <div class="skill-item">
+            <div class="skill-name">Android SDK & Jetpack <span></span></div>
+            <div class="skill-bar"><div class="skill-level expert"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Flutter <span>Proficient</span></div>
+            <div class="skill-bar"><div class="skill-level proficient"></div></div>
+          </div>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">Firebase (Analytics, Crashlytics, Messaging) <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
+
+        <!-- Architecture -->
+        <div class="skill-category">
+          <h3><i class="fas fa-cubes"></i> Architecture</h3>
+          <div class="skill-item">
+            <div class="skill-name">MVVM <span></span></div>
+            <div class="skill-bar"><div class="skill-level expert"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Clean Architecture <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">SOLID Principles <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Modular / Multi-module <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
         </div>
-        <div class="skill-item">
-          <div class="skill-name">Android Studio, Git, Postman, CI/CD <span>Expert</span></div>
-          <div class="skill-bar"><div class="skill-level expert"></div></div>
+
+        <!-- Libraries & Tools -->
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Libraries & Tools</h3>
+          <div class="skill-item">
+            <div class="skill-name">Retrofit, OkHttp, Room <span></span></div>
+            <div class="skill-bar"><div class="skill-level expert"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Dagger/Hilt, Coroutines <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Firebase (Analytics, Crashlytics, Messaging) <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Android Studio, Git, Postman, CI/CD <span>Expert</span></div>
+            <div class="skill-bar"><div class="skill-level expert"></div></div>
+          </div>
+        </div>
+
+        <!-- Other -->
+        <div class="skill-category">
+          <h3><i class="fas fa-shield-alt"></i> Other</h3>
+          <div class="skill-item">
+            <div class="skill-name">Mobile Security Best Practices <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Performance Profiling & Memory Optimization <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Monitoring & Analytics <span>Advanced</span></div>
+            <div class="skill-bar"><div class="skill-level advanced"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Material Design, Google Maps <span>Proficient</span></div>
+            <div class="skill-bar"><div class="skill-level proficient"></div></div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="skill-category">
-        <h3><i class="fas fa-shield-alt"></i> Other</h3>
-        <div class="skill-item">
-          <div class="skill-name">Mobile Security Best Practices <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Performance Profiling & Memory Optimization <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Monitoring & Analytics <span>Advanced</span></div>
-          <div class="skill-bar"><div class="skill-level advanced"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Material Design, Google Maps <span>Proficient</span></div>
-          <div class="skill-bar"><div class="skill-level proficient"></div></div>
-        </div>
-      </div>
+  </div>
 
-    </div>
-  </section>
 
-  <!-- Firebase Analytics - Added here -->
+  <!-- Scroll reveal animation -->
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+<!-- Firebase Analytics - Added here -->
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
@@ -446,9 +567,6 @@
     const analytics = getAnalytics(app);
   </script>
 
-  <footer>
-    Last updated: March 2026
-  </footer>
 
 </body>
 </html>
