@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Muhammad Zohaib Hassan - Android Developer">
-  <title>Contact - Zohaib</title>
+  <meta name="description" content="Contact Muhammad Zohaib Hassan — Android Developer available for new opportunities">
+  <title>Contact — Zohaib</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
 
   <!-- Navigation -->
   <nav class="navbar">
@@ -23,10 +30,10 @@
         <span></span>
       </div>
       <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="index.html"    class="nav-link">Home</a></li>
+        <li><a href="about.html"    class="nav-link">About</a></li>
         <li><a href="projects.html" class="nav-link">Projects</a></li>
-        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><a href="contact.html"  class="nav-link active">Contact</a></li>
         <li><button class="theme-toggle" id="theme-btn"><i class="fas fa-moon"></i></button></li>
       </ul>
     </div>
@@ -35,19 +42,27 @@
   <!-- Page Hero -->
   <section class="page-hero">
     <h1 class="page-title">Get In Touch</h1>
-    <p class="page-subtitle">Let's collaborate and build something amazing</p>
+    <p class="page-subtitle">Let's collaborate and build something amazing together</p>
   </section>
 
   <!-- Contact Section -->
   <section class="contact-section">
-    <div class="container contact-container">
-      
+
+    <!-- Animated background dots -->
+    <div class="contact-background">
+      <div class="floating-dot" style="width:120px; height:120px; top:8%; left:4%;"></div>
+      <div class="floating-dot" style="width:180px; height:180px; top:55%; right:6%; animation-delay:0.6s;"></div>
+      <div class="floating-dot" style="width:90px;  height:90px;  bottom:12%; left:48%; animation-delay:1.2s;"></div>
+    </div>
+
+    <div class="contact-container">
+
       <!-- Contact Info -->
       <div class="contact-info">
         <h2>Contact Information</h2>
-        
+
         <div class="info-item">
-          <i class="fas fa-phone"></i>
+          <div class="info-icon"><i class="fas fa-phone"></i></div>
           <div>
             <h4>Phone</h4>
             <a href="tel:+923402333225">+92 340 2333225</a>
@@ -55,7 +70,7 @@
         </div>
 
         <div class="info-item">
-          <i class="fas fa-envelope"></i>
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
           <div>
             <h4>Email</h4>
             <a href="mailto:m.zohaibhassan01@gmail.com">m.zohaibhassan01@gmail.com</a>
@@ -63,7 +78,7 @@
         </div>
 
         <div class="info-item">
-          <i class="fas fa-map-marker-alt"></i>
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
           <div>
             <h4>Location</h4>
             <p>Karachi, Pakistan</p>
@@ -71,7 +86,7 @@
         </div>
 
         <div class="info-item">
-          <i class="fas fa-clock"></i>
+          <div class="info-icon"><i class="fas fa-clock"></i></div>
           <div>
             <h4>Response Time</h4>
             <p>Within 24 hours</p>
@@ -82,15 +97,15 @@
 
         <h3>Connect With Me</h3>
         <div class="social-icons">
-          <a href="https://github.com/muzohaib3" target="_blank" class="social-icon">
+          <a href="https://github.com/muzohaib3"      target="_blank" class="social-icon" aria-label="GitHub">
             <i class="fab fa-github"></i>
             <span>GitHub</span>
           </a>
-          <a href="https://linkedin.com/in/mzohaib01" target="_blank" class="social-icon">
+          <a href="https://linkedin.com/in/mzohaib01" target="_blank" class="social-icon" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
             <span>LinkedIn</span>
           </a>
-          <a href="https://twitter.com" target="_blank" class="social-icon">
+          <a href="https://twitter.com"               target="_blank" class="social-icon" aria-label="Twitter">
             <i class="fab fa-twitter"></i>
             <span>Twitter</span>
           </a>
@@ -100,41 +115,42 @@
       <!-- Contact Form -->
       <div class="contact-form-wrapper">
         <h2>Send Me a Message</h2>
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form" novalidate>
+
           <div class="form-group">
             <label for="name">Full Name</label>
             <div class="input-wrapper">
               <i class="fas fa-user"></i>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+              <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
             </div>
-            <span class="error-message" id="name-error"></span>
+            <span class="error-message" id="name-error" role="alert"></span>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address</label>
             <div class="input-wrapper">
               <i class="fas fa-envelope"></i>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
             </div>
-            <span class="error-message" id="email-error"></span>
+            <span class="error-message" id="email-error" role="alert"></span>
           </div>
 
           <div class="form-group">
             <label for="subject">Subject</label>
             <div class="input-wrapper">
-              <i class="fas fa-heading"></i>
+              <i class="fas fa-tag"></i>
               <input type="text" id="subject" name="subject" placeholder="Project inquiry" required>
             </div>
-            <span class="error-message" id="subject-error"></span>
+            <span class="error-message" id="subject-error" role="alert"></span>
           </div>
 
           <div class="form-group">
             <label for="message">Message</label>
             <div class="input-wrapper textarea-wrapper">
-              <i class="fas fa-message"></i>
+              <i class="fas fa-comment-dots"></i>
               <textarea id="message" name="message" placeholder="Tell me about your project..." rows="6" required></textarea>
             </div>
-            <span class="error-message" id="message-error"></span>
+            <span class="error-message" id="message-error" role="alert"></span>
           </div>
 
           <button type="submit" class="btn btn-primary submit-btn">
@@ -142,28 +158,21 @@
             <i class="fas fa-paper-plane"></i>
           </button>
 
-          <p class="privacy-note">I'll get back to you as soon as possible. Your information is safe with me.</p>
+          <p class="privacy-note"><i class="fas fa-lock"></i> Your information is safe. I'll get back to you as soon as possible.</p>
         </form>
       </div>
 
     </div>
-
-    <!-- Animated Background -->
-    <div class="contact-background">
-      <div class="floating-dot" style="width: 100px; height: 100px; top: 10%; left: 5%;"></div>
-      <div class="floating-dot" style="width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 0.5s;"></div>
-      <div class="floating-dot" style="width: 80px; height: 80px; bottom: 15%; left: 50%; animation-delay: 1s;"></div>
-    </div>
   </section>
 
   <!-- Success Modal -->
-  <div class="modal" id="success-modal">
+  <div class="modal" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-content success-modal">
       <div class="modal-icon">
         <i class="fas fa-check-circle"></i>
       </div>
-      <h2>Thank You!</h2>
-      <p>Your message has been sent successfully. I'll get back to you soon.</p>
+      <h2 id="modal-title">Message Sent!</h2>
+      <p>Thank you for reaching out. I'll review your message and get back to you within 24 hours.</p>
       <button class="btn btn-primary" onclick="closeModal()">Close</button>
     </div>
   </div>
@@ -182,9 +191,9 @@
       <div class="footer-section">
         <h4>Connect</h4>
         <div class="social-links">
-          <a href="https://github.com/muzohaib3" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/mzohaib01" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:m.zohaibhassan01@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/muzohaib3"      target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/mzohaib01" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:m.zohaibhassan01@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
       <div class="footer-section">
