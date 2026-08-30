@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Zohaib's Portfolio Projects - Android Apps, Payment Systems, Inventory Management">
-  <title>Projects - Zohaib</title>
+  <meta name="description" content="Zohaib's Portfolio Projects — Android Apps, Payment Systems, Inventory Management, Banking">
+  <title>Projects — Zohaib</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
 
   <!-- Navigation -->
   <nav class="navbar">
@@ -23,10 +30,10 @@
         <span></span>
       </div>
       <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="index.html"    class="nav-link">Home</a></li>
+        <li><a href="about.html"    class="nav-link">About</a></li>
         <li><a href="projects.html" class="nav-link active">Projects</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="contact.html"  class="nav-link">Contact</a></li>
         <li><button class="theme-toggle" id="theme-btn"><i class="fas fa-moon"></i></button></li>
       </ul>
     </div>
@@ -42,16 +49,17 @@
   <section class="projects-section">
     <div class="container">
       <div class="projects-grid">
-        
-        <!-- Project 1 -->
-        <div class="project-card" style="animation-delay: 0s">
+
+        <!-- Project 1 — Bank Alfalah UPI -->
+        <div class="project-card">
           <div class="project-glow"></div>
+          <span class="project-badge badge-fintech">Fintech · 2025</span>
           <div class="project-header">
-            <i class="fas fa-mobile-alt"></i>
-            <h3>Bank Alfalah UPI Tap & Pay</h3>
+            <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h3>Bank Alfalah UPI Tap &amp; Pay</h3>
           </div>
-          <p class="project-date"><i class="fas fa-calendar"></i> May 2025 – Present</p>
-          <p class="project-desc">Implemented card enrollment flow with real-time status updates and NFC-based payment processing for secure tap-to-pay transactions.</p>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> May 2025 – Present</p>
+          <p class="project-desc">Implemented card enrollment flow with real-time status updates and NFC-based payment processing for secure tap-to-pay transactions at Bank Alfalah.</p>
           <div class="project-techs">
             <span class="tech-badge">Kotlin</span>
             <span class="tech-badge">NFC</span>
@@ -60,49 +68,52 @@
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card" style="animation-delay: 0.1s">
+        <!-- Project 2 — QR Scan -->
+        <div class="project-card">
           <div class="project-glow"></div>
+          <span class="project-badge badge-fintech">Fintech · 2025</span>
           <div class="project-header">
-            <i class="fas fa-qrcode"></i>
+            <div class="project-icon"><i class="fas fa-qrcode"></i></div>
             <h3>QR Scan (SBS Module)</h3>
           </div>
-          <p class="project-date"><i class="fas fa-calendar"></i> Jan 2025</p>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> Jan 2025</p>
           <p class="project-desc">QR-based payment processing supporting MasterCard, Visa, and Raast networks. Includes installment scheduling and flexible payment management.</p>
           <div class="project-techs">
             <span class="tech-badge">QR Code</span>
             <span class="tech-badge">Payment</span>
-            <span class="tech-badge">API</span>
+            <span class="tech-badge">Kotlin</span>
             <span class="tech-badge">Security</span>
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-card" style="animation-delay: 0.2s">
+        <!-- Project 3 — Agent App -->
+        <div class="project-card">
           <div class="project-glow"></div>
+          <span class="project-badge badge-fintech">Banking · 2025</span>
           <div class="project-header">
-            <i class="fas fa-bank"></i>
+            <div class="project-icon"><i class="fas fa-university"></i></div>
             <h3>Bank Alfalah Agent App</h3>
           </div>
-          <p class="project-date"><i class="fas fa-calendar"></i> Jan 2025</p>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> Jan 2025</p>
           <p class="project-desc">Agent-assisted customer onboarding with wallet management and secure remittance workflows. Modern UI components and efficient state management.</p>
           <div class="project-techs">
             <span class="tech-badge">Kotlin</span>
             <span class="tech-badge">MVVM</span>
             <span class="tech-badge">UI/UX</span>
-            <span class="tech-badge">Database</span>
+            <span class="tech-badge">Room DB</span>
           </div>
         </div>
 
-        <!-- Project 4 -->
-        <div class="project-card" style="animation-delay: 0.3s">
+        <!-- Project 4 — BlueEx -->
+        <div class="project-card">
           <div class="project-glow"></div>
+          <span class="project-badge badge-logistics">Logistics · 2024</span>
           <div class="project-header">
-            <i class="fas fa-truck"></i>
+            <div class="project-icon"><i class="fas fa-truck"></i></div>
             <h3>BlueEx RiderApp</h3>
           </div>
-          <p class="project-date"><i class="fas fa-calendar"></i> Oct 2024</p>
-          <p class="project-desc">Complete UI revamp and stability improvements across Android devices. Integrated barcode scanning and Easypaisa payment systems for riders.</p>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> Oct 2024</p>
+          <p class="project-desc">Complete UI revamp and stability improvements across Android devices. Integrated barcode scanning and Easypaisa payment systems for field riders.</p>
           <div class="project-techs">
             <span class="tech-badge">Kotlin</span>
             <span class="tech-badge">Scanning</span>
@@ -111,32 +122,34 @@
           </div>
         </div>
 
-        <!-- Project 5 -->
-        <div class="project-card" style="animation-delay: 0.4s">
+        <!-- Project 5 — Bosch Inventory -->
+        <div class="project-card">
           <div class="project-glow"></div>
+          <span class="project-badge badge-enterprise">Enterprise · 2022</span>
           <div class="project-header">
-            <i class="fas fa-boxes"></i>
+            <div class="project-icon"><i class="fas fa-boxes"></i></div>
             <h3>Bosch Inventory System</h3>
           </div>
-          <p class="project-date"><i class="fas fa-calendar"></i> Jul 2022</p>
-          <p class="project-desc">Real-time warehouse stock tracking system with barcode scanning and live data synchronization. Accurate inventory reporting and management.</p>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> Jul 2022</p>
+          <p class="project-desc">Real-time warehouse stock tracking system with barcode scanning and live data synchronization. Accurate inventory reporting and management dashboards.</p>
           <div class="project-techs">
             <span class="tech-badge">Java</span>
             <span class="tech-badge">Barcode</span>
-            <span class="tech-badge">Database</span>
+            <span class="tech-badge">Room DB</span>
             <span class="tech-badge">Sync</span>
           </div>
         </div>
 
-        <!-- Project 6 -->
-        <div class="project-card" style="animation-delay: 0.5s">
+        <!-- Project 6 — GoodsTracker -->
+        <div class="project-card">
           <div class="project-glow"></div>
+          <span class="project-badge badge-enterprise">WMS · 2022</span>
           <div class="project-header">
-            <i class="fas fa-warehouse"></i>
+            <div class="project-icon"><i class="fas fa-warehouse"></i></div>
             <h3>GoodsTracker (WMS)</h3>
           </div>
-          <p class="project-date"><i class="fas fa-calendar"></i> Jul 2022</p>
-          <p class="project-desc">Warehouse management system for streamlined order fulfillment. Automated goods receipt and tracking through smart barcode modules.</p>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> Jul 2022</p>
+          <p class="project-desc">Warehouse management system for streamlined order fulfillment. Automated goods receipt and tracking through smart barcode scanning modules.</p>
           <div class="project-techs">
             <span class="tech-badge">Java</span>
             <span class="tech-badge">WMS</span>
@@ -145,15 +158,16 @@
           </div>
         </div>
 
-        <!-- Project 7 -->
-        <div class="project-card" style="animation-delay: 0.6s">
+        <!-- Project 7 — Line Dashboard -->
+        <div class="project-card">
           <div class="project-glow"></div>
+          <span class="project-badge badge-analytics">Analytics · 2022</span>
           <div class="project-header">
-            <i class="fas fa-chart-line"></i>
+            <div class="project-icon"><i class="fas fa-chart-line"></i></div>
             <h3>Line Dashboard</h3>
           </div>
-          <p class="project-date"><i class="fas fa-calendar"></i> Aug 2022</p>
-          <p class="project-desc">Production schedule monitoring dashboard with real-time analytics. Charts and progress visualization for supervisors tracking batch performance.</p>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> Aug 2022</p>
+          <p class="project-desc">Production schedule monitoring dashboard with real-time analytics. Charts and progress visualization for supervisors tracking batch performance and KPIs.</p>
           <div class="project-techs">
             <span class="tech-badge">Android</span>
             <span class="tech-badge">Charts</span>
@@ -162,20 +176,38 @@
           </div>
         </div>
 
-        <!-- Project 8 -->
-        <div class="project-card" style="animation-delay: 0.7s">
+        <!-- Project 8 — TCF School -->
+        <div class="project-card">
           <div class="project-glow"></div>
+          <span class="project-badge badge-enterprise">EdTech · 2023</span>
           <div class="project-header">
-            <i class="fas fa-school"></i>
+            <div class="project-icon"><i class="fas fa-school"></i></div>
             <h3>TCF School Management</h3>
           </div>
-          <p class="project-date"><i class="fas fa-calendar"></i> Mar 2023</p>
-          <p class="project-desc">Modular school management platform for teachers and administrators. Offline caching and scalable architecture supporting 1000+ schools.</p>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> Mar 2023</p>
+          <p class="project-desc">Modular school management platform for teachers and administrators. Offline caching and scalable architecture supporting 1000+ schools nationwide.</p>
           <div class="project-techs">
             <span class="tech-badge">Kotlin</span>
             <span class="tech-badge">Modular</span>
             <span class="tech-badge">Offline</span>
             <span class="tech-badge">Jetpack</span>
+          </div>
+        </div>
+
+          <!-- Project 9 — Salah Steps -->
+        <div class="project-card">
+          <div class="project-glow"></div>
+          <span class="project-badge badge-enterprise">Personal · 2026</span>
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-school"></i></div>
+            <h3>Salah Steps</h3>
+          </div>
+          <p class="project-date"><i class="fas fa-calendar-alt"></i> Mar 2023</p>
+          <p class="project-desc">Developed a comprehensive Islamic app for managing Salah timings, Qibla direction (live), Quran reading, and Hadith collection</p>
+          <div class="project-techs">
+            <span class="tech-badge">Kotlin</span>
+            <span class="tech-badge">Modular</span>
+            <span class="tech-badge">Dependency Injection</span>
           </div>
         </div>
 
@@ -197,9 +229,9 @@
       <div class="footer-section">
         <h4>Connect</h4>
         <div class="social-links">
-          <a href="https://github.com/muzohaib3" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/mzohaib01" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:m.zohaibhassan01@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/muzohaib3"      target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/mzohaib01" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:m.zohaibhassan01@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
       <div class="footer-section">
