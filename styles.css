@@ -474,11 +474,19 @@ body {
   z-index: 0;
 }
 
-.hero-content {
+/* .hero-content {
   text-align: center;
   z-index: 10;
   position: relative;
   max-width: 860px;
+} */
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Flex items ko center karega */
+    text-align: center;      /* Text ko center karega */
+    width: 100%;
 }
 
 /* Watermark background text */
@@ -545,12 +553,17 @@ body {
   animation: gradientShift 6s ease infinite;
 }
 
-.typing-text {
+/* .typing-text {
   display: inline-block;
   border-right: 3px solid var(--primary);
   animation: blink 0.75s step-end infinite;
   white-space: nowrap;
   overflow: hidden;
+} */
+ .typing-text {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;         /* Auto margins center karne ke liye */
 }
 
 .hero-subtitle {
@@ -2145,10 +2158,13 @@ body {
     padding: 60px 16px 40px;
   }
 
-  .hero-title {
-    font-size: 2.6rem;
-    letter-spacing: -1px;
-  }
+ .hero-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
 
   .hero-subtitle {
     font-size: 1rem;
